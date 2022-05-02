@@ -3,7 +3,7 @@ const List = require("../model/List");
 const verify = require("../verifyToken");
 
 // Create
-router.post("/", verify, async (req, res) => {
+router.post("/", async (req, res) => {
   if (req.user.isAdmin) {
     const newList = new List(req.body);
     try {
@@ -18,7 +18,7 @@ router.post("/", verify, async (req, res) => {
 });
 
 // Delete
-router.delete("/:id", verify, async (req, res) => {
+router.delete("/:id", async (req, res) => {
   if (req.user.isAdmin) {
     try {
       await List.findByIdAndDelete(req.params.id);
@@ -32,7 +32,7 @@ router.delete("/:id", verify, async (req, res) => {
 });
 
 // Get
-router.get("/", verify, async (req, res) => {
+router.get("/", async (req, res) => {
   const typeQuery = req.query.type;
   const genreQuery = req.query.genre;
   let list = [];
@@ -59,7 +59,7 @@ router.get("/", verify, async (req, res) => {
 });
 
 // Update
-router.put("/:id", verify, async (req, res) => {
+router.put("/:id", async (req, res) => {
   if (req.user.isAdmin) {
     try {
       const updatedList = await List.findByIdAndUpdate(

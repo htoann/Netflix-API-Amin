@@ -4,7 +4,7 @@ const CryptoJS = require("crypto-js");
 const verify = require("../verifyToken");
 
 // Update
-router.put("/:id", verify, (req, res) => {
+router.put("/:id", (req, res) => {
   if (req.user.id === req.params.id || req.user.isAdmin) {
     if (req.body.password) {
       req.body.password = CryptoJS.AES.encrypt(
@@ -31,7 +31,7 @@ router.put("/:id", verify, (req, res) => {
 });
 
 // Delete
-router.delete("/:id", verify, async (req, res) => {
+router.delete("/:id", async (req, res) => {
   if (req.user.id === req.params.id || req.user.isAdmin) {
     try {
       await User.findByIdAndDelete(req.params.id);
@@ -46,7 +46,7 @@ router.delete("/:id", verify, async (req, res) => {
 });
 
 // Get
-router.get("/find/:id", verify, async (req, res) => {
+router.get("/find/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
 
@@ -58,7 +58,7 @@ router.get("/find/:id", verify, async (req, res) => {
 });
 
 // Get All
-router.get("/", verify, async (req, res) => {
+router.get("/", async (req, res) => {
   const query = req.query.new;
   try {
     users = query
@@ -72,7 +72,7 @@ router.get("/", verify, async (req, res) => {
 });
 
 // Get User Stats
-router.get("/stats", verify, async (req, res) => {
+router.get("/stats", async (req, res) => {
   try {
     const data = await User.aggregate([
       {

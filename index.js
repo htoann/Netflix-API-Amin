@@ -8,7 +8,7 @@ const movieRoute = require("./routes/movies");
 const listRoute = require("./routes/lists");
 const cors = require("cors");
 const path = require("path");
-
+const verify = require("./verifyToken");
 dotenv.config();
 
 mongoose
@@ -27,12 +27,11 @@ const corsOptions = {
 app.use(cors(corsOptions)); // Use this after the variable declaration
 
 app.use("/api/auth", authRoute);
-app.use("/api/users", userRoute);
-app.use("/api/movies", movieRoute);
-app.use("/api/lists", listRoute);
+app.use("/api/users", verify, userRoute);
+app.use("/api/movies", verify, movieRoute);
+app.use("/api/lists", verify, listRoute);
 
 // Deloy Heroku
-
 app.use(express.static(path.join(__dirname, "/admin/build")));
 
 app.get("*", (req, res) => {
