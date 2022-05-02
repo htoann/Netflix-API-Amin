@@ -1,11 +1,12 @@
+.newMovie {
+  flex: 4;
+  margin-bottom: 20px;
+}
+
 .addMovieTitle {
   color: black;
   text-align: left;
   margin-left: 40px;
-}
-
-.newMovie {
-  flex: 4;
 }
 
 .addMovieForm {
@@ -63,7 +64,6 @@ textarea {
   margin-left: 40px;
 }
 
-.rightNewMovie,
-.descriptionNewMovie {
+.rightNewMovie {
   margin-left: 200px;
 }

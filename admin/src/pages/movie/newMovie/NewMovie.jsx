@@ -192,15 +192,15 @@ export default function NewMovie() {
                 onChange={handleChange}
               />
             </div>
-          </div>
-          <div className="addMovieItem descriptionNewMovie">
-            <label>Description</label>
-            <textarea
-              type="text"
-              name="desc"
-              placeholder="The aging patriarch of an organized crime dynasty in postwar New York City transfers control of his clandestine empire to his reluctant youngest son."
-              onChange={handleChange}
-            />
+            <div className="addMovieItem descriptionNewMovie">
+              <label>Description</label>
+              <textarea
+                type="text"
+                name="desc"
+                placeholder="The aging patriarch of an organized crime dynasty in postwar New York City transfers control of his clandestine empire to his reluctant youngest son."
+                onChange={handleChange}
+              />
+            </div>
           </div>
         </div>
         <button className="addMovieButton" onClick={handleUpload}>

@@ -1,11 +1,12 @@
+.newList {
+  flex: 4;
+  margin-bottom: 20px;
+}
+
 .addListTitle {
   color: black;
   text-align: left;
   margin-left: 40px;
-}
-
-.newList {
-  flex: 4;
 }
 
 .addListForm {

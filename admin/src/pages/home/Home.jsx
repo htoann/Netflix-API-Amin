@@ -1,8 +1,6 @@
 import Chart from "../../components/chart/Chart";
-import FeaturedInfo from "../../components/featuredInfo/FeaturedInfo";
 import "./home.css";
 import WidgetSm from "../../components/widgetSm/WidgetSm";
-import WidgetLg from "../../components/widgetLg/WidgetLg";
 import { useEffect, useMemo, useState } from "react";
 import { axiosInstance } from "../../utils/axiosInstance";
 
@@ -48,11 +46,14 @@ export default function Home() {
 
   return (
     <div className="home">
-      <FeaturedInfo />
       <Chart data={userStats} title="User Analytics" grid dataKey="New User" />
       <div className="homeWidgets">
         <WidgetSm />
-        <WidgetLg />
+        <img
+          width="45%"
+          src="https://cdn.sforum.vn/sforum/wp-content/uploads/2022/04/netfilix-la-gi-h1.jpg"
+          alt=""
+        />
       </div>
     </div>
   );

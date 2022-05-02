@@ -11,25 +11,20 @@ export default function Movie() {
   const { dispatch } = useContext(MovieContext);
   const history = useHistory();
 
-  const handleUpdate = (e) => {
+  useEffect(() => {
+    setMovie(location.state?.movie);
+  }, [location.state]);
+
+  const handleUpdate = async (e) => {
     e.preventDefault();
-    try {
-      updateMovie(movie, dispatch);
-      history.goBack();
-    } catch (e) {
-      console.log(e);
-      history.goBack();
-    }
+    updateMovie(movie, dispatch);
+    history.goBack();
   };
 
   const handleChange = (e) => {
     e.preventDefault();
     setMovie({ ...movie, [e.target.name]: e.target.value });
   };
-
-  useEffect(() => {
-    setMovie(location.state?.movie);
-  }, [location.state]);
 
   return (
     <div className="movie">
