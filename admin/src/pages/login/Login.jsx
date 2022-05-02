@@ -9,9 +9,9 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const { isFetching, dispatch } = useContext(AuthContext);
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    login({ email, password }, dispatch);
+    await login({ email, password }, dispatch);
   };
 
   return (
