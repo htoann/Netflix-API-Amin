@@ -1,0 +1,149 @@
+.movie {
+  flex: 4;
+  padding: 20px;
+}
+
+.movieTitleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.movieInfoKey {
+  min-width: 50%;
+}
+
+.movieAddButton {
+  width: 150px;
+  border: none;
+  padding: 5px;
+  background-color: teal;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.movieTop {
+  display: flex;
+}
+
+.movieTopLeft,
+.movieTopRight {
+  flex: 1;
+}
+
+.movieTopRight {
+  padding: 20px;
+  margin: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.movieInfoImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.movieInfoTop {
+  display: flex;
+  align-items: center;
+}
+
+.movieName {
+  font-weight: 600;
+}
+
+.movieInfoBottom {
+  margin-top: 10px;
+}
+
+.movieInfoItem {
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.movieInfoValue {
+  font-weight: 300;
+  margin-bottom: 10px;
+  min-width: 60vmax;
+}
+
+.movieBottom {
+  padding: 20px;
+  margin: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.movieForm {
+  display: flex;
+  justify-content: space-between;
+}
+
+.movieFormLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.movieFormLeft > label {
+  margin-bottom: 10px;
+  color: gray;
+}
+
+.movieFormLeft > input {
+  margin-bottom: 10px;
+  border: none;
+  padding: 5px;
+  border-bottom: 1px solid gray;
+  min-width: 40vmax;
+}
+
+.movieFormLeft > select {
+  margin-bottom: 10px;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.movieUploadImg {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-right: 20px;
+  cursor: zoom-in;
+  transition: 1s;
+}
+
+.movieFormRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.movieUpload {
+  display: flex;
+  align-items: center;
+}
+
+.movieUpload svg {
+  cursor: pointer;
+}
+
+.movieButton {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: darkblue;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 15px;
+  width: 100px;
+  align-items: right;
+  justify-content: right;
+}
