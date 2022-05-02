@@ -7,5 +7,6 @@ export const axiosInstance = axios.create({
       : "https://netflixadm.herokuapp.com/api/",
   headers: {
     token: "Bearer " + JSON.parse(localStorage.getItem("user"))?.accessToken,
+    accessControlAllowOrigin: "*",
   },
 });

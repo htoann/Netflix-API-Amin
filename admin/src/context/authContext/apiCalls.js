@@ -11,6 +11,7 @@ export const login = async (user, dispatch) => {
   try {
     const res = await axiosInstance.post("auth/login", user);
     res.data.isAdmin && dispatch(loginSuccess(res.data));
+    window.location.href = "/";
   } catch (err) {
     dispatch(loginFailure());
   }

@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const Movie = require("../model/Movie");
-const verify = require("../verifyToken");
 
 // Create
 router.post("/", async (req, res) => {
@@ -89,7 +88,7 @@ router.get("/random", async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const movies = await Movie.find();
-    res.status(200).json(movies.reverse());
+    return res.status(200).json(movies.reverse());
   } catch (err) {
     res.status(500).json(err);
   }

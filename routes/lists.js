@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const List = require("../model/List");
-const verify = require("../verifyToken");
 
 // Create
 router.post("/", async (req, res) => {
@@ -52,7 +51,7 @@ router.get("/", async (req, res) => {
     } else {
       list = await List.aggregate([{ $sample: { size: 10 } }]);
     }
-    res.status(200).json(list);
+    res.status(200).json(list.reverse());
   } catch (err) {
     return res.status(403);
   }
