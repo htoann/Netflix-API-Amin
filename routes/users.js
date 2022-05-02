@@ -46,7 +46,7 @@ router.delete("/:id", verify, async (req, res) => {
 });
 
 // Get
-router.get("/find/:id", async (req, res) => {
+router.get("/find/:id", verify, async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
 
@@ -58,7 +58,7 @@ router.get("/find/:id", async (req, res) => {
 });
 
 // Get All
-router.get("/", async (req, res) => {
+router.get("/", verify, async (req, res) => {
   const query = req.query.new;
   try {
     users = query
@@ -72,10 +72,7 @@ router.get("/", async (req, res) => {
 });
 
 // Get User Stats
-router.get("/stats", async (req, res) => {
-  const today = new Date();
-  const lastYear = today.setFullYear(today.setFullYear() - 1);
-
+router.get("/stats", verify, async (req, res) => {
   try {
     const data = await User.aggregate([
       {

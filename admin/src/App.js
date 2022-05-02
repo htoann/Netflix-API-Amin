@@ -60,7 +60,6 @@ function App() {
                 <Route path="/newUser">
                   <NewUser />
                 </Route>
-                <ToastContainer autoClose={2000} />
               </div>
             </>
           ) : (
@@ -68,6 +67,7 @@ function App() {
           )}
         </Route>
       </Switch>
+      <ToastContainer autoClose={2000} />
     </Router>
   );
 }
