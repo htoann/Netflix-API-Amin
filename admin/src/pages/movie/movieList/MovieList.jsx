@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { MovieContext } from "../../../context/movieContext/MovieContext";
 import { deleteMovie, getMovies } from "../../../context/movieContext/apiCalls";
+import { capitalizeFirstLetter } from "./../../../utils/capitalizeFirstLetter";
 
 export default function MovieList() {
   const { movies, dispatch } = useContext(MovieContext);
@@ -38,12 +39,7 @@ export default function MovieList() {
       headerName: "Genre",
       width: 120,
       renderCell: (params) => {
-        return (
-          <div>
-            {params.row.genre.charAt(0).toUpperCase() +
-              params.row.genre.slice(1)}
-          </div>
-        );
+        return <div>{capitalizeFirstLetter(params.row.genre)}</div>;
       },
     },
     { field: "year", headerName: "Year", width: 110 },

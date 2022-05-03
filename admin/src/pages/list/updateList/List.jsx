@@ -19,10 +19,10 @@ export default function List() {
     getMovies(dispatchMovies);
   }, [location.state, dispatchMovies]);
 
-  const handleUpdate = (e) => {
+  const handleUpdate = async (e) => {
     e.preventDefault();
-    updateList(list, dispatch);
-    history.goBack();
+    await updateList(list, dispatch);
+    history.push("/lists");
   };
 
   const handleChange = (e) => {

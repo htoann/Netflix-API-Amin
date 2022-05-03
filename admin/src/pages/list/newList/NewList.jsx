@@ -18,10 +18,10 @@ export default function NewList() {
     setList({ ...list, [e.target.name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    createList(list, dispatch);
-    history.goBack();
+    await createList(list, dispatch);
+    history.push("/lists");
   };
 
   useEffect(() => {

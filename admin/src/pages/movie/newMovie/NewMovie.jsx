@@ -79,10 +79,10 @@ export default function NewMovie() {
     ]);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    createMovie(movie, dispatch);
-    history.goBack();
+    await createMovie(movie, dispatch);
+    history.push("/movies");
   };
 
   return (

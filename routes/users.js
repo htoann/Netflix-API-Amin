@@ -2,48 +2,6 @@ const router = require("express").Router();
 const User = require("../model/User");
 const CryptoJS = require("crypto-js");
 
-// Update
-router.put("/:id", (req, res) => {
-  if (req.user.id === req.params.id || req.user.isAdmin) {
-    if (req.body.password) {
-      req.body.password = CryptoJS.AES.encrypt(
-        req.body.password,
-        process.env.SECRET_KEY
-      ).toString();
-    }
-    try {
-      const updatedUser = User.findByIdAndUpdate(
-        req.params.id,
-        {
-          $set: req.body,
-        },
-        { new: true }
-      );
-
-      res.status(200).json(updatedUser);
-    } catch (err) {
-      res.json(500).json(err);
-    }
-  } else {
-    res.status(403).json("You can update only your account");
-  }
-});
-
-// Delete
-router.delete("/:id", async (req, res) => {
-  if (req.user.id === req.params.id || req.user.isAdmin) {
-    try {
-      await User.findByIdAndDelete(req.params.id);
-
-      res.status(200).json("User has been deleted");
-    } catch (err) {
-      res.json(500).json(err);
-    }
-  } else {
-    res.status(403).json("You can delete only your account");
-  }
-});
-
 // Get
 router.get("/find/:id", async (req, res) => {
   try {
@@ -89,6 +47,48 @@ router.get("/stats", async (req, res) => {
     res.status(200).json(data);
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+
+// Update
+router.put("/:id", async (req, res) => {
+  if (req.user.id === req.params.id || req.user.isAdmin) {
+    if (req.body.password) {
+      req.body.password = CryptoJS.AES.encrypt(
+        req.body.password,
+        process.env.SECRET_KEY
+      ).toString();
+    }
+    try {
+      const updatedUser = await User.findByIdAndUpdate(
+        req.params.id,
+        {
+          $set: req.body,
+        },
+        { new: true }
+      );
+
+      res.status(200).json(updatedUser);
+    } catch (err) {
+      res.json(500).json(err);
+    }
+  } else {
+    res.status(403).json("You can update only your account");
+  }
+});
+
+// Delete
+router.delete("/:id", async (req, res) => {
+  if (req.user.id === req.params.id || req.user.isAdmin) {
+    try {
+      await User.findByIdAndDelete(req.params.id);
+
+      res.status(200).json("User has been deleted");
+    } catch (err) {
+      res.json(500).json(err);
+    }
+  } else {
+    res.status(403).json("You can delete only your account");
   }
 });
 

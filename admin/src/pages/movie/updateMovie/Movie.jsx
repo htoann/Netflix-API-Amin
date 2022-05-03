@@ -17,8 +17,8 @@ export default function Movie() {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-    updateMovie(movie, dispatch);
-    history.goBack();
+    await updateMovie(movie, dispatch);
+    history.push("/movies");
   };
 
   const handleChange = (e) => {
