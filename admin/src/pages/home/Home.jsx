@@ -50,7 +50,7 @@ export default function Home() {
       <div className="homeWidgets">
         <WidgetSm />
         <img
-          width="45%"
+          width="700px"
           src="https://cdn.sforum.vn/sforum/wp-content/uploads/2022/04/netfilix-la-gi-h1.jpg"
           alt=""
         />
