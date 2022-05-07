@@ -5,6 +5,7 @@ import {
   loginSuccess,
   logoutSuccess,
 } from "./AuthActions";
+import { toast } from "react-toastify";
 
 export const login = async (user, dispatch) => {
   dispatch(loginStart());
@@ -12,6 +13,7 @@ export const login = async (user, dispatch) => {
     const res = await axiosInstance.post("auth/login", user);
     res.data.isAdmin && dispatch(loginSuccess(res.data));
     window.location.href = "/";
+    toast.info("Loading...");
   } catch (err) {
     dispatch(loginFailure());
   }

@@ -49,6 +49,27 @@ router.get("/stats", async (req, res) => {
     res.status(500).json(err);
   }
 });
+// router.get("/stats", (req, res) => {
+//   User.aggregate([
+//     {
+//       $project: {
+//         month: { $month: "$createdAt" },
+//       },
+//     },
+//     {
+//       $group: {
+//         _id: "$month",
+//         total: { $sum: 1 },
+//       },
+//     },
+//   ])
+//     .then((data) => {
+//       res.status(200).json(data);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// });
 
 // Update
 router.put("/:id", async (req, res) => {
