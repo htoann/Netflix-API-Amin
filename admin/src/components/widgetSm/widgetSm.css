@@ -34,12 +34,12 @@
 
 .widgetSmUser {
   display: flex;
-  flex-direction: column;
 }
 
 .widgetSmUsername {
   font-weight: 600;
   max-width: 200px;
+  margin-right: 4px;
 
   overflow: hidden;
   text-overflow: ellipsis;

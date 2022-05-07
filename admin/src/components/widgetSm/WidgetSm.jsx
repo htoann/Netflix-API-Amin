@@ -33,9 +33,8 @@ export default function WidgetSm() {
               className="widgetSmImg"
             />
             <div className="widgetSmUser">
-              <span className="widgetSmUsername">
-                {user.username} ({user.isAdmin ? "Admin" : "User"})
-              </span>
+              <span className="widgetSmUsername">{user.username}</span>
+              <div>({user.isAdmin ? "Admin" : "User"})</div>
             </div>
             <button className="widgetSmButton">
               <Visibility className="widgetSmIcon" />
