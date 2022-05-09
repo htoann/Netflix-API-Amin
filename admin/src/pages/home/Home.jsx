@@ -46,15 +46,26 @@ export default function Home() {
 
   return (
     <div className="home">
-      <Chart data={userStats} title="User Analytics" grid dataKey="New User" />
-      <div className="homeWidgets">
-        <WidgetSm />
-        <img
-          width="700px"
-          src="https://cdn.sforum.vn/sforum/wp-content/uploads/2022/04/netfilix-la-gi-h1.jpg"
-          alt=""
-        />
-      </div>
+      {userStats ? (
+        <>
+          <Chart
+            data={userStats}
+            title="User Analytics"
+            grid
+            dataKey="New User"
+          />
+          <div className="homeWidgets">
+            <WidgetSm />
+            <img
+              width="700px"
+              src="https://cdn.sforum.vn/sforum/wp-content/uploads/2022/04/netfilix-la-gi-h1.jpg"
+              alt=""
+            />
+          </div>
+        </>
+      ) : (
+        <h1>Loading...</h1>
+      )}
     </div>
   );
 }

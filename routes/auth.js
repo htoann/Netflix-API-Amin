@@ -33,7 +33,7 @@ router.post("/register", async (req, res) => {
 });
 
 // Login
-router.post("/login", async (req, res) => {
+router.post("/login", async (req, res, next) => {
   try {
     const user = await User.findOne({ email: req.body.email });
     if (!user) {
@@ -50,11 +50,11 @@ router.post("/login", async (req, res) => {
           { expiresIn: "30d" }
         );
         const { password, ...info } = user._doc;
-        return res.status(200).json({ ...info, accessToken });
+        res.status(200).json({ ...info, accessToken });
       }
     }
   } catch (err) {
-    return res.status(500).json(err);
+    next(err);
   }
 });
 

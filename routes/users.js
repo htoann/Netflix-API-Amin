@@ -15,21 +15,21 @@ router.get("/find/:id", async (req, res) => {
 });
 
 // Get All
-router.get("/", async (req, res) => {
+router.get("/", async (req, res, next) => {
   const query = req.query.new;
   try {
-    users = query
+    const users = query
       ? await User.find().sort({ _id: -1 }).limit(5)
       : await User.find();
 
     res.status(200).json(users);
   } catch (err) {
-    res.status(500).json(err);
+    next(err);
   }
 });
 
 // Get User Stats
-router.get("/stats", async (req, res) => {
+router.get("/stats", async (req, res, next) => {
   try {
     const data = await User.aggregate([
       {
@@ -46,7 +46,7 @@ router.get("/stats", async (req, res) => {
     ]);
     res.status(200).json(data);
   } catch (err) {
-    res.status(500).json(err);
+    next(err);
   }
 });
 

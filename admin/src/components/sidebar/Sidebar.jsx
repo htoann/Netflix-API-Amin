@@ -12,17 +12,19 @@ import {
   PlayCircleOutline,
   List,
 } from "@material-ui/icons";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "./../../context/authContext/AuthContext";
 import { useContext } from "react";
 import { logout } from "../../context/authContext/apiCalls";
 
 export default function Sidebar() {
   const { dispatch } = useContext(AuthContext);
+  const history = useHistory();
 
   const handleLogout = (e) => {
     e.preventDefault();
     logout(dispatch);
+    history.push("/");
   };
 
   return (

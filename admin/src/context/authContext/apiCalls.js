@@ -13,7 +13,7 @@ export const login = async (user, dispatch) => {
     const res = await axiosInstance.post("auth/login", user);
     res.data.isAdmin && dispatch(loginSuccess(res.data));
     window.location.href = "/";
-    toast.info("Logging...");
+    toast.info("Logging...", { autoClose: 7000 });
   } catch (err) {
     dispatch(loginFailure());
   }
