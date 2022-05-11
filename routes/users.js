@@ -20,7 +20,7 @@ router.get("/", async (req, res, next) => {
   try {
     const users = query
       ? await User.find().sort({ _id: -1 }).limit(5)
-      : await User.find();
+      : await User.find().sort({ _id: -1 });
 
     res.status(200).json(users);
   } catch (err) {
