@@ -13,6 +13,7 @@ import {
   updateListStart,
   updateListSuccess,
 } from "./ListActions";
+import { toast } from "react-toastify";
 
 export const getLists = async (dispatch) => {
   dispatch(getListsStart());
@@ -30,6 +31,7 @@ export const deleteList = async (id, dispatch) => {
     await axiosInstance.delete("/lists/" + id);
     dispatch(deleteListSuccess(id));
   } catch (err) {
+    toast.error(err.response.data);
     dispatch(deleteListFailure());
   }
 };
@@ -40,6 +42,7 @@ export const createList = async (list, dispatch) => {
     const res = await axiosInstance.post("/lists", list);
     dispatch(createListSuccess(res.data));
   } catch (err) {
+    toast.error(err.response.data);
     dispatch(createListFailure());
   }
 };
@@ -50,6 +53,7 @@ export const updateList = async (list, dispatch) => {
     const res = await axiosInstance.put(`/lists/${list._id}`, list);
     dispatch(updateListSuccess(res.data));
   } catch (err) {
+    toast.error(err.response.data);
     dispatch(updateListFailure());
   }
 };

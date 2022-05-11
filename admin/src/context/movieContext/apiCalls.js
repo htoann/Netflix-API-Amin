@@ -13,6 +13,7 @@ import {
   updateMovieStart,
   updateMovieSuccess,
 } from "./MovieActions";
+import { toast } from "react-toastify";
 
 export const getMovies = async (dispatch) => {
   dispatch(getMoviesStart());
@@ -30,6 +31,7 @@ export const deleteMovie = async (id, dispatch) => {
     await axiosInstance.delete("/movies/" + id);
     dispatch(deleteMovieSuccess(id));
   } catch (err) {
+    toast.error(err.response.data);
     dispatch(deleteMovieFailure());
   }
 };
@@ -40,6 +42,7 @@ export const createMovie = async (movie, dispatch) => {
     const res = await axiosInstance.post("/movies", movie);
     dispatch(createMovieSuccess(res.data));
   } catch (err) {
+    toast.error(err.response.data);
     dispatch(createMovieFailure());
   }
 };
@@ -50,6 +53,7 @@ export const updateMovie = async (movie, dispatch) => {
     const res = await axiosInstance.put(`/movies/${movie._id}`, movie);
     dispatch(updateMovieSuccess(res.data));
   } catch (err) {
+    toast.error(err.response.data);
     dispatch(updateMovieFailure());
   }
 };
