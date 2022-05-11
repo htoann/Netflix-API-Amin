@@ -22,7 +22,7 @@ router.get("/", async (req, res, next) => {
       ? await User.find().sort({ _id: -1 }).limit(5)
       : await User.find().sort({ _id: -1 });
 
-    res.status(200).json(users);
+    users && res.status(200).json(users);
   } catch (err) {
     next(err);
   }
