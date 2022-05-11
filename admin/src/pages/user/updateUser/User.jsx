@@ -42,7 +42,14 @@ export default function User() {
       <div className="userContainer">
         <div className="userShow">
           <div className="userShowTop">
-            <img src={user.avatar} alt="" className="userShowImg" />
+            <img
+              src={
+                user.avatar ||
+                "https://ih1.redbubble.net/image.618405117.2432/flat,1000x1000,075,f.u2.jpg"
+              }
+              alt=""
+              className="userShowImg"
+            />
             <div className="userShowTopTitle">
               <span className="userShowUsername">{user.username}</span>
               <span className="userShowUserTitle">
