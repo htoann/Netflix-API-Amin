@@ -1,59 +1,50 @@
-import { axiosInstance } from "../../utils/axiosInstance";
+import * as L from "./ListActions";
 import {
-  createListFailure,
-  createListStart,
-  createListSuccess,
-  deleteListFailure,
-  deleteListStart,
-  deleteListSuccess,
-  getListsFailure,
-  getListsStart,
-  getListsSuccess,
-  updateListFailure,
-  updateListStart,
-  updateListSuccess,
-} from "./ListActions";
-import { toast } from "react-toastify";
+  createApiContext,
+  deleteApiContext,
+  getApiContext,
+  updateApiContext,
+} from "../../utils/apiCall";
 
 export const getLists = async (dispatch) => {
-  dispatch(getListsStart());
-  try {
-    const res = await axiosInstance.get("/lists");
-    dispatch(getListsSuccess(res.data));
-  } catch (err) {
-    dispatch(getListsFailure());
-  }
+  getApiContext(
+    dispatch,
+    L.getListsStart,
+    L.getListsSuccess,
+    L.getListsFailure,
+    "/lists"
+  );
 };
 
 export const deleteList = async (id, dispatch) => {
-  dispatch(deleteListStart());
-  try {
-    await axiosInstance.delete("/lists/" + id);
-    dispatch(deleteListSuccess(id));
-  } catch (err) {
-    toast.error(err.response.data);
-    dispatch(deleteListFailure());
-  }
+  deleteApiContext(
+    dispatch,
+    L.deleteListStart,
+    L.deleteListSuccess,
+    L.deleteListFailure,
+    "/lists/",
+    id
+  );
 };
 
 export const createList = async (list, dispatch) => {
-  dispatch(createListStart());
-  try {
-    const res = await axiosInstance.post("/lists", list);
-    dispatch(createListSuccess(res.data));
-  } catch (err) {
-    toast.error(err.response.data);
-    dispatch(createListFailure());
-  }
+  createApiContext(
+    dispatch,
+    L.createListStart,
+    L.createListSuccess,
+    L.createListFailure,
+    "/lists",
+    list
+  );
 };
 
 export const updateList = async (list, dispatch) => {
-  dispatch(updateListStart());
-  try {
-    const res = await axiosInstance.put(`/lists/${list._id}`, list);
-    dispatch(updateListSuccess(res.data));
-  } catch (err) {
-    toast.error(err.response.data);
-    dispatch(updateListFailure());
-  }
+  updateApiContext(
+    dispatch,
+    L.updateListStart,
+    L.updateListSuccess,
+    L.updateListFailure,
+    `/lists/${list._id}`,
+    list
+  );
 };

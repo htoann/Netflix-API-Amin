@@ -3,25 +3,10 @@ import "./home.css";
 import WidgetSm from "../../components/widgetSm/WidgetSm";
 import { useEffect, useMemo, useState } from "react";
 import { axiosInstance } from "../../utils/axiosInstance";
+import { Months } from "./../../utils/months";
 
 export default function Home() {
-  const MONTHS = useMemo(
-    () => [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ],
-    []
-  );
+  const MONTHS = useMemo(() => Months, []);
   const [userStats, setUserStats] = useState([]);
 
   useEffect(() => {

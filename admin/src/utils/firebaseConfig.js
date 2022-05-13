@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBguDMC4v7lhckzDr27GrDBZiTqjfEpN78",
+  apiKey: process.env.FIREBASE_API,
   authDomain: "netflix-16c38.firebaseapp.com",
   projectId: "netflix-16c38",
   storageBucket: "netflix-16c38.appspot.com",

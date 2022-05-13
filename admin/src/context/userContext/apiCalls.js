@@ -1,59 +1,50 @@
-import { axiosInstance } from "../../utils/axiosInstance";
+import * as U from "./UserActions";
 import {
-  createUserFailure,
-  createUserStart,
-  createUserSuccess,
-  deleteUserFailure,
-  deleteUserStart,
-  deleteUserSuccess,
-  getUsersFailure,
-  getUsersStart,
-  getUsersSuccess,
-  updateUserFailure,
-  updateUserStart,
-  updateUserSuccess,
-} from "./UserActions";
-import { toast } from "react-toastify";
+  createApiContext,
+  deleteApiContext,
+  getApiContext,
+  updateApiContext,
+} from "../../utils/apiCall";
 
 export const getUsers = async (dispatch) => {
-  dispatch(getUsersStart());
-  try {
-    const res = await axiosInstance.get("/users");
-    dispatch(getUsersSuccess(res.data));
-  } catch (err) {
-    dispatch(getUsersFailure());
-  }
+  getApiContext(
+    dispatch,
+    U.getUsersStart,
+    U.getUsersSuccess,
+    U.getUsersFailure,
+    "/users"
+  );
 };
 
 export const deleteUser = async (id, dispatch) => {
-  dispatch(deleteUserStart());
-  try {
-    await axiosInstance.delete("/users/" + id);
-    dispatch(deleteUserSuccess(id));
-  } catch (err) {
-    toast.error(err.response.data);
-    dispatch(deleteUserFailure());
-  }
+  deleteApiContext(
+    dispatch,
+    U.deleteUserStart,
+    U.deleteUserSuccess,
+    U.deleteUserFailure,
+    "/users/",
+    id
+  );
 };
 
 export const createUser = async (user, dispatch) => {
-  dispatch(createUserStart());
-  try {
-    const res = await axiosInstance.post("/users", user);
-    dispatch(createUserSuccess(res.data));
-  } catch (err) {
-    toast.error(err.response.data);
-    dispatch(createUserFailure());
-  }
+  createApiContext(
+    dispatch,
+    U.createUserStart,
+    U.createUserSuccess,
+    U.createUserFailure,
+    "/users",
+    user
+  );
 };
 
 export const updateUser = async (user, dispatch) => {
-  dispatch(updateUserStart());
-  try {
-    const res = await axiosInstance.put(`/users/${user._id}`, user);
-    dispatch(updateUserSuccess(res.data));
-  } catch (err) {
-    toast.error(err.response.data);
-    dispatch(updateUserFailure());
-  }
+  updateApiContext(
+    dispatch,
+    U.updateUserStart,
+    U.updateUserSuccess,
+    U.updateUserFailure,
+    `/users/${user._id}`,
+    user
+  );
 };

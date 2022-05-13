@@ -30,8 +30,9 @@ export default function UserList() {
             <img
               className="userListImg"
               src={
-                params.row.avatar ||
-                "https://ih1.redbubble.net/image.618405117.2432/flat,1000x1000,075,f.u2.jpg"
+                params.row.avatar
+                  ? params.row.avatar
+                  : "https://ih1.redbubble.net/image.618405117.2432/flat,1000x1000,075,f.u2.jpg"
               }
               alt=""
             />

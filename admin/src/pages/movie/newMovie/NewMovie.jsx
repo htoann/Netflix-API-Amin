@@ -8,7 +8,7 @@ import {
 } from "firebase/storage";
 import { createMovie } from "../../../context/movieContext/apiCalls";
 import { MovieContext } from "../../../context/movieContext/MovieContext";
-import firebaseApp from "./../../../firebase";
+import firebaseApp from "../../../utils/firebaseConfig";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
