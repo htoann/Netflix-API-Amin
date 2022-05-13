@@ -1,8 +1,7 @@
 import { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { createUser } from "../../../context/userContext/apiCalls";
-import { UserContext } from "../../../context/userContext/UserContext";
-import "./newUser.css";
+import { createUser } from "../../context/userContext/apiCalls";
+import { UserContext } from "../../context/userContext/UserContext";
 
 export default function NewUser() {
   const [user, setUser] = useState(null);
@@ -21,10 +20,10 @@ export default function NewUser() {
   };
 
   return (
-    <div className="newUser">
-      <h1 className="newUserTitle">New User</h1>
-      <form className="newUserForm">
-        <div className="newUserItem">
+    <div className="wrap">
+      <h1 className="title">New User</h1>
+      <form className="formNewUser">
+        <div className="item">
           <label>Username</label>
           <input
             name="username"
@@ -33,7 +32,7 @@ export default function NewUser() {
             onChange={handleChange}
           />
         </div>
-        <div className="newUserItem">
+        <div className="item">
           <label>Email</label>
           <input
             name="email"
@@ -42,16 +41,26 @@ export default function NewUser() {
             onChange={handleChange}
           />
         </div>
-        <div className="newUserItem">
+        <div className="item">
           <label>Password</label>
           <input
             name="password"
             type="password"
-            placeholder="password"
+            placeholder="Password"
             onChange={handleChange}
           />
         </div>
-        <button className="newUserButton" onChange={handleSubmit}>
+        <div className="item">
+          <label>Role</label>
+          <select name="isAdmin">
+            <option value="true">Admin</option>
+            <option value="false">User</option>
+          </select>
+        </div>
+        <button
+          className="buttonMain buttonMainNewUser"
+          onChange={handleSubmit}
+        >
           Create
         </button>
       </form>

@@ -1,10 +1,9 @@
 import { useHistory, useLocation } from "react-router-dom";
-import "./list.css";
 import { useContext, useState, useEffect } from "react";
-import { ListContext } from "../../../context/listContext/ListContext";
-import { updateList } from "../../../context/listContext/apiCalls";
-import { MovieContext } from "../../../context/movieContext/MovieContext";
-import { getMovies } from "../../../context/movieContext/apiCalls";
+import { ListContext } from "../../context/listContext/ListContext";
+import { updateList } from "../../context/listContext/apiCalls";
+import { MovieContext } from "../../context/movieContext/MovieContext";
+import { getMovies } from "../../context/movieContext/apiCalls";
 
 export default function List() {
   const location = useLocation();
@@ -31,34 +30,34 @@ export default function List() {
   };
 
   return (
-    <div className="list">
-      <div className="listTop">
-        <div className="listTopRight">
-          <div className="listInfoTop">
-            <span className="listName">{list.title}</span>
+    <div className="wrapUpdate">
+      <div className="topUpdate">
+        <div className="topRightUpdate">
+          <div className="infoTopUpdate">
+            <span className="nameUpdate">{list.title}</span>
           </div>
-          <div className="listInfoBottom">
-            <div className="listInfoItem">
-              <span className="listInfoKey">ID : </span>
-              <span className="listInfoValue">{list._id}</span>
+          <div className="infoBottomUpdate">
+            <div className="infoItemUpdate">
+              <span className="infoKeyUpdate">ID : </span>
+              <span className="infoValueUpdate">{list._id}</span>
             </div>
-            <div className="listInfoItem">
-              <span className="listInfoKey">Genre : </span>
-              <span className="listInfoValue">
+            <div className="infoItemUpdate">
+              <span className="infoKeyUpdate">Genre : </span>
+              <span className="infoValueUpdate">
                 {list.genre.charAt(0).toUpperCase() + list.genre.slice(1)}
               </span>
             </div>
-            <div className="listInfoItem">
-              <span className="listInfoKey">Type : </span>
-              <span className="listInfoValue">
+            <div className="infoItemUpdate">
+              <span className="infoKeyUpdate">Type : </span>
+              <span className="infoValueUpdate">
                 {list.type.charAt(0).toUpperCase() + list.type.slice(1)}
               </span>
             </div>
-            <div className="listInfoItem">
-              <span className="listInfoKey">List Movies : </span>
-              <div className="listMovie">
+            <div className="infoItemUpdate">
+              <span className="infoKeyUpdate">List Movies : </span>
+              <div className="itemUpdate">
                 {list.content.map((id, key) => (
-                  <div key={key} className="listInfoValue">
+                  <div key={key} className="infoValueUpdate">
                     {movies.map((movie) => (
                       <div key={movie._id}>
                         {movie._id === id[0] ? movie.title : ""}
@@ -71,9 +70,9 @@ export default function List() {
           </div>
         </div>
       </div>
-      <div className="listBottom">
-        <form className="listForm">
-          <div className="listFormLeft">
+      <div className="bottomUpdate">
+        <form className="updateFormUpdate">
+          <div className="formLeftUpdate">
             <label>Movie Title</label>
             <input
               type="text"
@@ -95,7 +94,7 @@ export default function List() {
               onChange={handleChange}
               defaultValue={list.type}
             />
-            <button className="listButton" onClick={handleUpdate}>
+            <button className="buttonMain" onClick={handleUpdate}>
               Update
             </button>
           </div>

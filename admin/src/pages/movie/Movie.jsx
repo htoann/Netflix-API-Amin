@@ -1,9 +1,8 @@
 import { useHistory, useLocation } from "react-router-dom";
-import "./movie.css";
 import { Publish } from "@material-ui/icons";
 import { useContext, useState, useEffect } from "react";
-import { MovieContext } from "../../../context/movieContext/MovieContext";
-import { updateMovie } from "../../../context/movieContext/apiCalls";
+import { MovieContext } from "../../context/movieContext/MovieContext";
+import { updateMovie } from "../../context/movieContext/apiCalls";
 
 export default function Movie() {
   const location = useLocation();
@@ -27,52 +26,52 @@ export default function Movie() {
   };
 
   return (
-    <div className="movie">
-      <div className="movieTop">
-        <div className="movieTopRight">
-          <div className="movieInfoTop">
-            <img src={movie.img} alt="" className="movieInfoImg" />
-            <span className="movieName">{movie.title}</span>
+    <div className="wrapUpdate">
+      <div className="topUpdate">
+        <div className="topRightUpdate">
+          <div className="infoTopUpdate">
+            <img src={movie.img} alt="" className="infoImgUpdate" />
+            <span className="nameUpdate">{movie.title}</span>
           </div>
-          <div className="movieInfoBottom">
-            <div className="movieInfoItem">
-              <span className="movieInfoKey">ID</span>
-              <span className="movieInfoValue">{movie._id}</span>
+          <div className="infoBottomUpdate">
+            <div className="infoItemUpdate">
+              <span className="infoKeyUpdate">ID : </span>
+              <span className="infoValueUpdate">{movie._id}</span>
             </div>
-            <div className="movieInfoItem">
-              <span className="movieInfoKey">Genre : </span>
-              <span className="movieInfoValue">
+            <div className="infoItemUpdate">
+              <span className="infoKeyUpdate">Genre : </span>
+              <span className="infoValueUpdate">
                 {movie.genre.charAt(0).toUpperCase() + movie.genre.slice(1)}
               </span>
             </div>
-            <div className="movieInfoItem">
-              <span className="movieInfoKey">Year : </span>
-              <span className="movieInfoValue">{movie.year}</span>
+            <div className="infoItemUpdate">
+              <span className="infoKeyUpdate">Year : </span>
+              <span className="infoValueUpdate">{movie.year}</span>
             </div>
-            <div className="movieInfoItem">
-              <span className="movieInfoKey">Limit : </span>
-              <span className="movieInfoValue">{movie.limit}</span>
+            <div className="infoItemUpdate">
+              <span className="infoKeyUpdate">Limit : </span>
+              <span className="infoValueUpdate">{movie.limit}</span>
             </div>
-            <div className="movieInfoItem">
-              <span className="movieInfoKey">Trailer Link: </span>
-              <span className="movieInfoValue">{movie.trailer}</span>
+            <div className="infoItemUpdate">
+              <span className="infoKeyUpdate">Trailer Link: </span>
+              <span className="infoValueUpdate">{movie.trailer}</span>
             </div>
-            <div className="movieInfoItem">
-              <span className="movieInfoKey">Video Link : </span>
-              <span className="movieInfoValue">{movie.video}</span>
+            <div className="infoItemUpdate">
+              <span className="infoKeyUpdate">Video Link : </span>
+              <span className="infoValueUpdate">{movie.video}</span>
             </div>
-            <div className="movieInfoItem">
-              <span className="movieInfoKey">Type : </span>
-              <span className="movieInfoValue">
+            <div className="infoItemUpdate">
+              <span className="infoKeyUpdate">Type : </span>
+              <span className="infoValueUpdate">
                 {movie.isSeries ? "Season" : "Movie"}
               </span>
             </div>
           </div>
         </div>
       </div>
-      <div className="movieBottom">
-        <form className="movieForm">
-          <div className="movieFormLeft">
+      <div className="bottomUpdate">
+        <form className="updateFormUpdate">
+          <div className="formLeftUpdate">
             <label>Movie Title</label>
             <input
               type="text"
@@ -126,14 +125,14 @@ export default function Movie() {
               <option value="true">Series</option>
             </select>
           </div>
-          <div className="movieFormRight">
-            <div className="movieUpload">
-              <img src={movie.img} alt="" className="movieUploadImg" />
+          <div className="formRightUpdate">
+            <div className="updateUpdate">
+              <img src={movie.img} alt="" className="uploadImgUpdate" />
               <label htmlFor="file">
                 <Publish />
               </label>
             </div>
-            <button className="movieButton" onClick={handleUpdate}>
+            <button className="buttonMain" onClick={handleUpdate}>
               Update
             </button>
           </div>

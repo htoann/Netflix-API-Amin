@@ -26,9 +26,9 @@ export default function UserList() {
       width: 200,
       renderCell: (params) => {
         return (
-          <div className="userListUser">
+          <div className="listItem">
             <img
-              className="userListImg"
+              className="listImg"
               src={
                 params.row.avatar
                   ? params.row.avatar
@@ -53,9 +53,9 @@ export default function UserList() {
     {
       field: "action",
       headerName: (
-        <div className="movieTitleContainer">
+        <div className="titleContainer">
           <Link to="/newuser">
-            <button className="movieAddButton">Create New User</button>
+            <button className="addButton">Create New User</button>
           </Link>
         </div>
       ),
@@ -69,10 +69,10 @@ export default function UserList() {
                 state: { user: params.row },
               }}
             >
-              <button className="userListEdit">Edit</button>
+              <button className="listEdit">Edit</button>
             </Link>
             <DeleteOutline
-              className="userListDelete"
+              className="listDelete"
               onClick={() => handleDelete(params.row._id)}
             />
           </>
@@ -82,7 +82,7 @@ export default function UserList() {
   ];
 
   return (
-    <div className="userList">
+    <div className="list">
       <DataGrid
         rows={users}
         disableSelectionOnClick

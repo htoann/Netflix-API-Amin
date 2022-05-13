@@ -1,11 +1,10 @@
-import "./movieList.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
-import { MovieContext } from "../../../context/movieContext/MovieContext";
-import { deleteMovie, getMovies } from "../../../context/movieContext/apiCalls";
-import { capitalizeFirstLetter } from "./../../../utils/capitalizeFirstLetter";
+import { MovieContext } from "../../context/movieContext/MovieContext";
+import { deleteMovie, getMovies } from "../../context/movieContext/apiCalls";
+import { capitalizeFirstLetter } from "../../utils/capitalizeFirstLetter";
 
 export default function MovieList() {
   const { movies, dispatch } = useContext(MovieContext);
@@ -27,8 +26,8 @@ export default function MovieList() {
       width: 350,
       renderCell: (params) => {
         return (
-          <div className="movieListItem">
-            <img className="movieListImg" src={params.row.img} alt="" />
+          <div className="listItem">
+            <img className="listImg" src={params.row.img} alt="" />
             {params.row.title}
           </div>
         );
@@ -56,9 +55,9 @@ export default function MovieList() {
     {
       field: "action",
       headerName: (
-        <div className="movieTitleContainer">
+        <div className="titleContainer">
           <Link to="/newmovie">
-            <button className="movieAddButton">Create New Movie</button>
+            <button className="addButton">Create New Movie</button>
           </Link>
         </div>
       ),
@@ -72,10 +71,10 @@ export default function MovieList() {
                 state: { movie: params.row },
               }}
             >
-              <button className="movieListEdit">Edit</button>
+              <button className="listEdit">Edit</button>
             </Link>
             <DeleteOutline
-              className="movieListDelete"
+              className="listDelete"
               onClick={() => handleDelete(params.row._id)}
             />
           </>
@@ -85,7 +84,7 @@ export default function MovieList() {
   ];
 
   return (
-    <div className="movieList">
+    <div className="list">
       <DataGrid
         rows={movies}
         disableSelectionOnClick

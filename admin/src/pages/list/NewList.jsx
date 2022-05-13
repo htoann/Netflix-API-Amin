@@ -1,10 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import "./newList.css";
-import { createList } from "../../../context/listContext/apiCalls";
-import { ListContext } from "../../../context/listContext/ListContext";
+import { createList } from "../../context/listContext/apiCalls";
+import { ListContext } from "../../context/listContext/ListContext";
 import { useHistory } from "react-router-dom";
-import { getMovies } from "./../../../context/movieContext/apiCalls";
-import { MovieContext } from "./../../../context/movieContext/MovieContext";
+import { getMovies } from "../../context/movieContext/apiCalls";
+import { MovieContext } from "../../context/movieContext/MovieContext";
 
 export default function NewList() {
   const history = useHistory();
@@ -37,12 +36,12 @@ export default function NewList() {
   };
 
   return (
-    <div className="newList">
-      <h1 className="addListTitle">New List</h1>
-      <form className="addListForm">
+    <div className="wrap">
+      <h1 className="title">New List</h1>
+      <form className="form">
         <div className="mid">
           <div className="left">
-            <div className="addListItem">
+            <div className="item">
               <label>List Title</label>
               <input
                 type="text"
@@ -51,7 +50,7 @@ export default function NewList() {
                 onChange={handleChange}
               />
             </div>
-            <div className="addListItem">
+            <div className="item">
               <label>Genre</label>
               <input
                 type="text"
@@ -60,7 +59,7 @@ export default function NewList() {
                 onChange={handleChange}
               />
             </div>
-            <div className="addListItem">
+            <div className="item">
               <label>Type</label>
               <input
                 name="type"
@@ -70,11 +69,11 @@ export default function NewList() {
               />
             </div>
           </div>
-          <div className="newListRight">
-            <div className="addListItem">
+          <div className="right">
+            <div className="item">
               <label>List Movies (Ctrl + click to choose)</label>
               <select
-                className="newList_SelectContent"
+                className="selectContent"
                 multiple
                 name="content"
                 onChange={handleSelect}
@@ -88,7 +87,7 @@ export default function NewList() {
             </div>
           </div>
         </div>
-        <button className="addListButton" onClick={handleSubmit}>
+        <button className="buttonMain" onClick={handleSubmit}>
           Create
         </button>
       </form>

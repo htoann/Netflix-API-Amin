@@ -33,7 +33,7 @@ export const createUser = async (user, dispatch) => {
     U.createUserStart,
     U.createUserSuccess,
     U.createUserFailure,
-    "/users",
+    "/register",
     user
   );
 };

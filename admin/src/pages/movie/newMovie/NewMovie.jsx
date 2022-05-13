@@ -86,12 +86,12 @@ export default function NewMovie() {
   };
 
   return (
-    <div className="newMovie">
-      <h1 className="addMovieTitle">New Movie</h1>
-      <form className="addMovieForm">
-        <div className="midNewMovie">
-          <div className="leftNewMovie">
-            <div className="addMovieItem">
+    <div className="wrap">
+      <h1 className="title">New Movie</h1>
+      <form className="form">
+        <div className="mid">
+          <div className="left">
+            <div className="item itemNewMovie">
               <label>Title</label>
               <input
                 type="text"
@@ -100,7 +100,7 @@ export default function NewMovie() {
                 onChange={handleChange}
               />
             </div>
-            <div className="addMovieItem">
+            <div className="item itemNewMovie">
               <label>Image</label>
               <input
                 type="text"
@@ -114,7 +114,7 @@ export default function NewMovie() {
                 onChange={(e) => setImg(e.target.files[0])}
               />
             </div>
-            <div className="addMovieItem">
+            <div className="item itemNewMovie">
               <label>Thumbnail</label>
               <input
                 type="text"
@@ -128,7 +128,7 @@ export default function NewMovie() {
                 onChange={(e) => setImgSm(e.target.files[0])}
               />
             </div>
-            <div className="addMovieItem">
+            <div className="item itemNewMovie">
               <label>Genre</label>
               <input
                 type="text"
@@ -137,7 +137,7 @@ export default function NewMovie() {
                 onChange={handleChange}
               />
             </div>
-            <div className="addMovieItem">
+            <div className="item itemNewMovie">
               <label>Type</label>
               <select name="isSeries" id="isSeries" onChange={handleChange}>
                 <option value="false">Movie</option>
@@ -145,8 +145,8 @@ export default function NewMovie() {
               </select>
             </div>
           </div>
-          <div className="rightNewMovie">
-            <div className="addMovieItem">
+          <div className="right">
+            <div className="item itemNewMovie">
               <label>Trailer</label>
               <input
                 type="text"
@@ -160,7 +160,7 @@ export default function NewMovie() {
                 onChange={(e) => setTrailer(e.target.files[0])}
               />
             </div>
-            <div className="addMovieItem">
+            <div className="item itemNewMovie">
               <label>Video</label>
               <input
                 type="text"
@@ -174,7 +174,7 @@ export default function NewMovie() {
                 onChange={(e) => setVideo(e.target.files[0])}
               />
             </div>
-            <div className="addMovieItem">
+            <div className="item itemNewMovie">
               <label>Limit</label>
               <input
                 type="text"
@@ -183,7 +183,7 @@ export default function NewMovie() {
                 onChange={handleChange}
               />
             </div>
-            <div className="addMovieItem">
+            <div className="item itemNewMovie">
               <label>Year</label>
               <input
                 type="text"
@@ -192,7 +192,7 @@ export default function NewMovie() {
                 onChange={handleChange}
               />
             </div>
-            <div className="addMovieItem descriptionNewMovie">
+            <div className="item itemNewMovie">
               <label>Description</label>
               <textarea
                 type="text"
@@ -203,10 +203,10 @@ export default function NewMovie() {
             </div>
           </div>
         </div>
-        <button className="addMovieButton" onClick={handleUpload}>
+        <button className="buttonMain" onClick={handleUpload}>
           Upload File
         </button>
-        <button className="addMovieButton" onClick={handleSubmit}>
+        <button className="buttonMain" onClick={handleSubmit}>
           Create
         </button>
       </form>

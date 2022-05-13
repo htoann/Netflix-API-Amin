@@ -1,10 +1,9 @@
-import "./listList.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
-import { ListContext } from "../../../context/listContext/ListContext";
-import { deleteList, getLists } from "../../../context/listContext/apiCalls";
+import { ListContext } from "../../context/listContext/ListContext";
+import { deleteList, getLists } from "../../context/listContext/apiCalls";
 
 export default function ListList() {
   const { lists, dispatch } = useContext(ListContext);
@@ -25,7 +24,7 @@ export default function ListList() {
       headerName: "List Title",
       width: 250,
       renderCell: (params) => {
-        return <div className="listListItem">{params.row.title}</div>;
+        return <div className="listItem">{params.row.title}</div>;
       },
     },
     {
@@ -57,9 +56,9 @@ export default function ListList() {
     {
       field: "action",
       headerName: (
-        <div className="listTitleContainer">
+        <div className="titleContainer">
           <Link to="/newlist">
-            <button className="listAddButton">Create New List</button>
+            <button className="addButton">Create New List</button>
           </Link>
         </div>
       ),
@@ -73,10 +72,10 @@ export default function ListList() {
                 state: { list: params.row },
               }}
             >
-              <button className="listListEdit">Edit</button>
+              <button className="listEdit">Edit</button>
             </Link>
             <DeleteOutline
-              className="listListDelete"
+              className="listDelete"
               onClick={() => handleDelete(params.row._id)}
             />
           </>
@@ -86,7 +85,7 @@ export default function ListList() {
   ];
 
   return (
-    <div className="listList">
+    <div className="list">
       <DataGrid
         rows={lists}
         disableSelectionOnClick

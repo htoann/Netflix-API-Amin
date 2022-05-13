@@ -97,12 +97,15 @@ export default function User() {
                 <input
                   name="avatar"
                   type="text"
-                  defaultValue={user.avatar}
+                  defaultValue={
+                    user.avatar ||
+                    "https://ih1.redbubble.net/image.618405117.2432/flat,1000x1000,075,f.u2.jpg"
+                  }
                   className="userUpdateInput"
                   onChange={handleChange}
                 />
               </div>
-              <button className="userUpdateButton" onClick={handleUpdate}>
+              <button className="buttonMain" onClick={handleUpdate}>
                 Update
               </button>
             </div>

@@ -142,14 +142,3 @@
 .userUpdateIcon {
   cursor: pointer;
 }
-
-.userUpdateButton {
-  border-radius: 5px;
-  border: none;
-  padding: 5px;
-  cursor: pointer;
-  background-color: darkblue;
-  color: white;
-  font-weight: 600;
-  margin-top: 20px;
-}
