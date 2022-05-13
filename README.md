@@ -23,6 +23,9 @@ npm
 npm start
 ```
 
+Or here is the [Netflix Admin](https://netflixtht.herokuapp.com/)
+Visit netfix clone for user : [Netflix](https://netflixtht.herokuapp.com/)
+
 ## Sources
 
 - Netflix
