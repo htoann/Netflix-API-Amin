@@ -1,6 +1,6 @@
-# Netflix API
+# Netflix ADMIN
 
-Netflix API for a netflix clone website built with React and Node
+Netflix Admin website built with React and Node
 
 ## Table of contents
 
