@@ -1,4 +1,4 @@
-# Netflix ADMIN
+# Netflix Admin
 
 Netflix Admin website built with React and Node
 
