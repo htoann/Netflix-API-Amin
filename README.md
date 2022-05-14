@@ -1,6 +1,6 @@
-# Netflix API
+# Netflix ADMIN
 
-Netflix API for a netflix clone website built with React and Node
+Netflix Admin website built with React and Node
 
 ## Table of contents
 
@@ -22,6 +22,12 @@ To run this project, install it locally using npm (or yarn):
 npm
 npm start
 ```
+
+## Live Example
+
+Or here is the live example [Netflix Admin](https://netflixtht.herokuapp.com/)
+
+Visit netfix clone for user : [Netflix](https://netflixtht.herokuapp.com/)
 
 ## Sources
 
