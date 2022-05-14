@@ -1,6 +1,5 @@
 import { axiosInstance } from "./axiosInstance";
 import { toast } from "react-toastify";
-import { Months } from "./months";
 
 export const getApiContext = async (dispatch, start, success, failure, url) => {
   dispatch(start());

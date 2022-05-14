@@ -16,6 +16,7 @@ export const login = async (user, dispatch) => {
     toast.info("Logging...", { autoClose: 7000 });
   } catch (err) {
     dispatch(loginFailure());
+    toast.error(err.response.data);
   }
 };
 
