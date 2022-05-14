@@ -6,7 +6,7 @@ import {
   updateApiContext,
 } from "../../utils/apiCall";
 
-export const getUsers = async (dispatch) => {
+export const getUsers = (dispatch) => {
   getApiContext(
     dispatch,
     U.getUsersStart,
@@ -16,7 +16,17 @@ export const getUsers = async (dispatch) => {
   );
 };
 
-export const deleteUser = async (id, dispatch) => {
+export const getNewUsers = (dispatch) => {
+  getApiContext(
+    dispatch,
+    U.getUsersStart,
+    U.getUsersSuccess,
+    U.getUsersFailure,
+    "/users?new=true"
+  );
+};
+
+export const deleteUser = (id, dispatch) => {
   deleteApiContext(
     dispatch,
     U.deleteUserStart,
@@ -27,7 +37,7 @@ export const deleteUser = async (id, dispatch) => {
   );
 };
 
-export const createUser = async (user, dispatch) => {
+export const createUser = (user, dispatch) => {
   createApiContext(
     dispatch,
     U.createUserStart,
@@ -38,7 +48,7 @@ export const createUser = async (user, dispatch) => {
   );
 };
 
-export const updateUser = async (user, dispatch) => {
+export const updateUser = (user, dispatch) => {
   updateApiContext(
     dispatch,
     U.updateUserStart,

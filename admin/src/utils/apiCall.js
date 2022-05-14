@@ -1,5 +1,6 @@
 import { axiosInstance } from "./axiosInstance";
 import { toast } from "react-toastify";
+import { Months } from "./months";
 
 export const getApiContext = async (dispatch, start, success, failure, url) => {
   dispatch(start());
@@ -62,5 +63,17 @@ export const updateApiContext = async (
   } catch (err) {
     toast.error(err.response.data);
     dispatch(failure());
+  }
+};
+
+export const getStatsList = async () => {
+  try {
+    const userStats = await axiosInstance.get("/users/stats");
+    const statsList = await userStats.data.sort(function (a, b) {
+      return a._id - b._id;
+    });
+    return statsList;
+  } catch (err) {
+    console.log(err);
   }
 };

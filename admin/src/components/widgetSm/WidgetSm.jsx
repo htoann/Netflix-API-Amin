@@ -1,28 +1,21 @@
 import "./widgetSm.css";
 import { Visibility } from "@material-ui/icons";
-import { useEffect, useState } from "react";
-import { axiosInstance } from "./../../utils/axiosInstance";
+import { useContext, useEffect } from "react";
+import { getNewUsers } from "../../context/userContext/apiCalls";
+import { UserContext } from "../../context/userContext/UserContext";
 
 export default function WidgetSm() {
-  const [newUsers, setNewUsers] = useState([]);
+  const { users, dispatch } = useContext(UserContext);
 
   useEffect(() => {
-    const getNewUsers = async () => {
-      try {
-        const res = await axiosInstance.get("/users?new=true");
-        setNewUsers(res.data);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    getNewUsers();
-  }, []);
+    getNewUsers(dispatch);
+  }, [dispatch]);
 
   return (
     <div className="widgetSm">
       <span className="widgetSmTitle">New Join Members</span>
       <ul className="widgetSmList">
-        {newUsers.map((user) => (
+        {users.map((user) => (
           <li className="widgetSmListItem" key={user._id}>
             <img
               src={

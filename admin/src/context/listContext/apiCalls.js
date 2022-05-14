@@ -6,7 +6,7 @@ import {
   updateApiContext,
 } from "../../utils/apiCall";
 
-export const getLists = async (dispatch) => {
+export const getLists = (dispatch) => {
   getApiContext(
     dispatch,
     L.getListsStart,
@@ -16,7 +16,7 @@ export const getLists = async (dispatch) => {
   );
 };
 
-export const deleteList = async (id, dispatch) => {
+export const deleteList = (id, dispatch) => {
   deleteApiContext(
     dispatch,
     L.deleteListStart,
@@ -27,7 +27,7 @@ export const deleteList = async (id, dispatch) => {
   );
 };
 
-export const createList = async (list, dispatch) => {
+export const createList = (list, dispatch) => {
   createApiContext(
     dispatch,
     L.createListStart,
@@ -38,7 +38,7 @@ export const createList = async (list, dispatch) => {
   );
 };
 
-export const updateList = async (list, dispatch) => {
+export const updateList = (list, dispatch) => {
   updateApiContext(
     dispatch,
     L.updateListStart,

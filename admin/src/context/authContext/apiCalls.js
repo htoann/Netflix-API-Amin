@@ -19,6 +19,6 @@ export const login = async (user, dispatch) => {
   }
 };
 
-export const logout = async (dispatch) => {
+export const logout = (dispatch) => {
   dispatch(logoutSuccess());
 };

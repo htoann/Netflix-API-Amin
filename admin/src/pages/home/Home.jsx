@@ -2,31 +2,24 @@ import Chart from "../../components/chart/Chart";
 import "./home.css";
 import WidgetSm from "../../components/widgetSm/WidgetSm";
 import { useEffect, useMemo, useState } from "react";
-import { axiosInstance } from "../../utils/axiosInstance";
 import { Months } from "./../../utils/months";
+import { getStatsList } from "../../utils/apiCall";
 
 export default function Home() {
   const MONTHS = useMemo(() => Months, []);
   const [userStats, setUserStats] = useState([]);
 
   useEffect(() => {
-    const getStats = async () => {
-      try {
-        const getUserStats = await axiosInstance.get("/users/stats");
-        const statsList = getUserStats.data.sort(function (a, b) {
-          return a._id - b._id;
-        });
-        statsList.map((item) =>
-          setUserStats((prev) => [
-            ...prev,
-            { name: MONTHS[item._id - 1], "New User": item.total },
-          ])
-        );
-      } catch (err) {
-        console.log(err);
-      }
+    const getUserStats = async () => {
+      const userStats = await getStatsList();
+      userStats.map((item) =>
+        setUserStats((prev) => [
+          ...prev,
+          { name: MONTHS[item._id - 1], "New User": item.total },
+        ])
+      );
     };
-    getStats();
+    getUserStats();
   }, [MONTHS]);
 
   return (

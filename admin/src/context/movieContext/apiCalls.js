@@ -6,7 +6,7 @@ import {
 } from "../../utils/apiCall";
 import * as M from "./MovieActions";
 
-export const getMovies = async (dispatch) => {
+export const getMovies = (dispatch) => {
   getApiContext(
     dispatch,
     M.getMoviesStart,
@@ -16,7 +16,7 @@ export const getMovies = async (dispatch) => {
   );
 };
 
-export const deleteMovie = async (id, dispatch) => {
+export const deleteMovie = (id, dispatch) => {
   deleteApiContext(
     dispatch,
     M.deleteMovieStart,
@@ -27,7 +27,7 @@ export const deleteMovie = async (id, dispatch) => {
   );
 };
 
-export const createMovie = async (movie, dispatch) => {
+export const createMovie = (movie, dispatch) => {
   createApiContext(
     dispatch,
     M.createMovieStart,
@@ -38,7 +38,7 @@ export const createMovie = async (movie, dispatch) => {
   );
 };
 
-export const updateMovie = async (movie, dispatch) => {
+export const updateMovie = (movie, dispatch) => {
   updateApiContext(
     dispatch,
     M.updateMovieStart,
