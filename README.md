@@ -37,7 +37,7 @@ npm start
 
 Or here is the live example [Netflix Admin](https://netflixtht.herokuapp.com/)
 
-Visit netfix for user : [Netflix](https://netflixht.herokuapp.com/)
+Visit netfix for user : [Netflix](https://netflixtht.herokuapp.com/)
 
 ## Sources
 
