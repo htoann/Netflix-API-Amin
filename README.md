@@ -39,6 +39,10 @@ Or here is the live example [Netflix Admin](https://netflixtht.herokuapp.com/)
 
 Visit netfix for user : [Netflix](https://netflixtht.herokuapp.com/)
 
+![Netflix-Test1](https://user-images.githubusercontent.com/32484104/198825817-92f22205-3bda-44d6-93c0-6d97751bd074.png)
+
+![Netflix-Test2](https://user-images.githubusercontent.com/32484104/198825872-b724890f-a823-4dd6-baa0-b81e4f8f3a6e.png)
+
 ## Sources
 
 - Netflix
